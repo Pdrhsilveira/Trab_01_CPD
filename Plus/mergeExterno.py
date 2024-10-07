@@ -101,9 +101,9 @@ create_random_file('random_numbers.txt', 100000)
 
 split_file('random_numbers.txt', 5)
 
-input_files = ['random_numbers_part1.txt', 'random_numbers_part2.txt', 'random_numbers_part3.txt', 'random_numbers_part4.txt', 'random_numbers_part5.txt']
-output_file = 'sorted_output.txt'
+input_files = ['n_aleatorios_1.txt', 'n_aleatorios_2.txt', 'n_aleatorios_3.txt', 'n_aleatorios_4.txt', 'n_aleatorios_5.txt']
+output_file = 'arquivo_final.txt'
 block_size = 10000
 
 external_sort(input_files, output_file, block_size)
-print('File sorted successfully!')
+print('Finalizado, verifique o processo nos arquivos txt!')
