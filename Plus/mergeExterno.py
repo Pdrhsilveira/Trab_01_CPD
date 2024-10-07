@@ -96,14 +96,25 @@ def split_file(input_file, num_parts):
             part_file.writelines(lines[i * part_size:(i + 1) * part_size])
 
 
-create_random_file('random_numbers.txt', 100000)
+create_random_file('Numeros_Aleatorios.txt', 1000)
 
 
-split_file('random_numbers.txt', 5)
+split_file('Numeros_Aleatorios.txt', 5)
 
-input_files = ['n_aleatorios_1.txt', 'n_aleatorios_2.txt', 'n_aleatorios_3.txt', 'n_aleatorios_4.txt', 'n_aleatorios_5.txt']
+
+input_files = ['Numeros_Aleatorios_part1.txt', 'Numeros_Aleatorios_part2.txt', 'Numeros_Aleatorios_part3.txt', 'Numeros_Aleatorios_part4.txt', 'Numeros_Aleatorios_part5.txt']
 output_file = 'arquivo_final.txt'
+
+for i, input_file in enumerate(input_files):
+    with open(input_file, 'r') as file:
+        lines = file.readlines()
+        lines = [int(line.strip()) for line in lines]
+        sorted_lines = merge_sort(lines)
+        
+        with open(f"Ordenados_part{i+1}.txt", 'w') as sorted_file:
+            sorted_file.write('\n'.join(str(line) for line in sorted_lines))
 block_size = 10000
+
 
 external_sort(input_files, output_file, block_size)
 print('Finalizado, verifique o processo nos arquivos txt!')
